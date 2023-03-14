@@ -10,8 +10,10 @@
 #define STEPPER3_DIR_PIN 12
 #define STEPPER4_STEP_PIN 26
 #define STEPPER4_DIR_PIN 27
+#define STEPPER5_STEP_PIN 2
+#define STEPPER5_DIR_PIN 15
 
-#define BUTTON_PIN 35
+#define BUTTON_PIN 34
 #define NAN_ALERT_LED 4 // This LEDs sole purpose is to alarm the user that there was NaN result in the IK calculations.
 #define BUTTON_COOLDOWN_CYCLES 5000
 
