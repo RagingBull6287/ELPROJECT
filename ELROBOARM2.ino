@@ -47,50 +47,58 @@ void setup()
     attachInterrupt(BUTTON_PIN, isr, FALLING);
 }
 
-void loop()
-{
+void loop(){
  if (button1.pressed) {
         Serial.printf("Button has been pressed %u times\n", button1.numberKeyPresses);
         button1.pressed = false;
 
     }
  
+  switch(button1.numberKeyPresses)
+  {
 
-  if(button1.numberKeyPresses == 0)
+  case 0:
         {
           Rotary1.update();
           MOTOR1.RUN(Rotary1.counter);
           Serial.print("Adjusting Joint 1");
         }
         
-  else if(button1.numberKeyPresses == 1 )
+   case 1:
         {
           Rotary1.update();
           MOTOR2.RUN(Rotary1.counter);
           Serial.print("Adjusting Joint 2");
-                
+          break;     
         }
          
-   else if(button1.numberKeyPresses == 2 )
+   case 2:
         {        
           Rotary1.update();
           MOTOR3.RUN(Rotary1.counter);
           Serial.print("Adjusting Joint 3");
+          break;
         }
         
-    else if(button1.numberKeyPresses == 3)
+    case 3:
         {
            Rotary1.update();
            MOTOR4.RUN(Rotary1.counter);
-          Serial.print("Adjusting Joint 4");
-           
+           Serial.print("Adjusting Joint 4");
+           break;
         }
-    else if(button1.numberKeyPresses == 4)
+    case 4:
         {
            Rotary1.update();
            MOTOR5.RUN(Rotary1.counter);
-          Serial.print("Adjusting Base");
+           Serial.print("Adjusting Base");
+           break;
         }
-    else
-         Serial.println("error");
+    default:
+         {
+           Serial.println("error");
+           break;
+         }
+ }
 }
+
